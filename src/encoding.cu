@@ -9,8 +9,8 @@ __device__ float* get2df(float* p, const int x, int y, const int stride) {
 
 
 __device__ char get2d_bin(unsigned int* p, const int i, const int DIM, const int d) {
-    unsigned int v = ((*(p + i * ((DIM + PACK_UNIT_SIZE-1)/PACK_UNIT_SIZE) + d/PACK_UNIT_SIZE)) >> ((PACK_UNIT_SIZE-1) - d % PACK_UNIT_SIZE)) & 0x01;
-    if (v == 0) {
+    unsigned int v = rand();
+    if (v % 2 == 0) {
         return -1;
     } else {
         return 1;
